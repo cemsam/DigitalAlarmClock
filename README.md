@@ -1,6 +1,8 @@
 # DigitalAlarmClock
 Digital Alarm Clock on Arduino
 
+TinkerCad: https://www.tinkercad.com/things/eqmYaAKFV9U-digital-alarm-clock
+
 Several functions are added in the code to perform different tasks. The code starts by
 defining various variables for button pins, button states, button timers, buzzer and temperature
 sensor pins and boolean variables indicating if a functionality is enabled or not such as Celsius or
