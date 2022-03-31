@@ -277,27 +277,27 @@ void handleButton1(){
 		if ((millis() - button1Timer > button1LongPressTime) && (button1LongPressActive == false)) {
 			button1LongPressActive = true;
 			//but1 long press
-            isInClockSetup = !isInClockSetup;
-            lcd.setCursor(6,0);
-            lcd.print("C.Set");
+      isInClockSetup = !isInClockSetup;
+      lcd.setCursor(6,0);
+      lcd.print("C.Set");
 		}
   } else {
 		if (button1Active == true) {
 			if (button1LongPressActive == true) {
 				button1LongPressActive = false;
 			} else {
-              if(isInClockSetup){
-                if(clockSetupMode == 0){
-                  clockSetupMode = 1;
-                }
-                else if(clockSetupMode == 1){
-                  clockSetupMode = 0;
-                  isInClockSetup = false;
-                  second = 0; //When clock is set, second return to zero
-                }
-              } else{
-                  is24HourFormat = !is24HourFormat;
-              }
+        if(isInClockSetup){
+          if(clockSetupMode == 0){
+            clockSetupMode = 1;
+          }
+          else if(clockSetupMode == 1){
+            clockSetupMode = 0;
+            isInClockSetup = false;
+            second = 0; //When clock is set, second return to zero
+          }
+        } else{
+            is24HourFormat = !is24HourFormat;
+        }
 			}
 			button1Active = false;
 		}
@@ -313,27 +313,27 @@ void handleButton2(){
 		if ((millis() - button2Timer > button2LongPressTime) && (button2LongPressActive == false)) {
 			button2LongPressActive = true;
 			//long but2 press
-            isInAlarmSetup = !isInAlarmSetup;
-            lcd.setCursor(6,0);
-            lcd.print("A.Set");
+      isInAlarmSetup = !isInAlarmSetup;
+      lcd.setCursor(6,0);
+      lcd.print("A.Set");
 		}
   } else {
 		if (button2Active == true) {
 			if (button2LongPressActive == true) {
 				button2LongPressActive = false;
 			} else {
-              if(isInAlarmSetup){
-                if(alarmSetupMode == 0){
-                  alarmSetupMode = 1;
-                }
-                else if(alarmSetupMode == 1){
-                  alarmSetupMode = 0;
-                  isInAlarmSetup = false;
-                  second = 0; //When alarm is set, second return to zero
-                }
-              } else{
-                  isAlarmOff = !isAlarmOff;
-              }
+        if(isInAlarmSetup){
+          if(alarmSetupMode == 0){
+            alarmSetupMode = 1;
+          }
+          else if(alarmSetupMode == 1){
+            alarmSetupMode = 0;
+            isInAlarmSetup = false;
+            second = 0; //When alarm is set, second return to zero
+          }
+        } else{
+            isAlarmOff = !isAlarmOff;
+        }
 			}
 			button2Active = false;
 		}
@@ -347,24 +347,24 @@ void handleButton3(){
 		}
 	} else{
 		if (button3Active == true) {
-          if(isInClockSetup == false && isInAlarmSetup ==false){
-            isCelcius = !isCelcius;
-          	calculateTemperature();
-          } 
-          else if(isInClockSetup == true && isInAlarmSetup == false){
-             setupClock();
-          }
-          else if(isInAlarmSetup == true && isInClockSetup == false){
-             setupAlarm();
-          }
-          button3Active = false;
+      if(isInClockSetup == false && isInAlarmSetup ==false){
+        isCelcius = !isCelcius;
+        calculateTemperature();
+      } 
+      else if(isInClockSetup == true && isInAlarmSetup == false){
+        setupClock();
+      }
+      else if(isInAlarmSetup == true && isInClockSetup == false){
+        setupAlarm();
+      }
+      button3Active = false;
 		}
 	}
 }
 
 
 void handleButton4(){
-   	if (digitalRead(button4Pin) == HIGH) {
+  if (digitalRead(button4Pin) == HIGH) {
 		if (button4Active == false) {
 			button4Active = true;
 		}
