@@ -5,6 +5,8 @@ TinkerCad: https://www.tinkercad.com/things/eqmYaAKFV9U-digital-alarm-clock
 
 ## Circuit and connections
 
+![Circuit](Circuit.png)
+
 The circuit is built by using an Arduino Uno, 1 16x2 LCD, 4 buttons, 1 piezo buzzer and 1 TMP36 
 temperature sensor. Only library that has been included is “LiquidCrystal.h”.
 
