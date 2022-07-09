@@ -24,7 +24,7 @@ for button pins, button states, button timers, buzzer and temperature sensor pin
 indicating if a functionality is enabled or not such as Celsius or Fahrenheit, AM/PM format or 
 24 hour format and is alarm on or off.
 
-### Setting up timer1 registers for interrupt
+- ### Setting up timer1 registers for interrupt
 
 The timer1 of Arduino is used for timing. In setup function, TCCR1A, TCCR1B and
 TIMSK1 registers are used to set up the timer and enabling timer interrupt. By enabling
@@ -34,13 +34,13 @@ TIMSK1 register in order to activate timer1 COMPA interrupt. Lastly, by setting 
 timer1 COMPA, an interrupt is generated every second. This way, the seconds can be updated by
 using the timer1 of Arduino.
 
-### setupAlarm and setupClock functions
+- ### setupAlarm and setupClock functions
 
 The setupAlarm and setupClock functions are used to set the corresponding time. They are called when 
 the corresponding buttons are hold for 3 seconds. Also setting up hour and minute functions are 
 separated so that with a short button click, the set up parameter is changed.
 
-### updateClock and printClock functions
+- ### updateClock and printClock functions
 
 The updateClock function is used to update the time and increment the second variable. The printClock 
 function is used to first check if AM/PM mode is enabled or not and then print current time to LCD. 
@@ -48,7 +48,7 @@ The printClock function is also called in updateClock function so that only upda
 both update and print the time. Then the updateClock function is called in timer ISR, so that time is 
 updated every second.
 
-### calculateTemperature and updateTemperature functions
+- ### calculateTemperature and updateTemperature functions
 
 In the calculateTemperature function, first an analog read is performed on sensor pin. Then this value is 
 assigned to corresponding Celsius value by converting read millivolt data to Celsius. Also in this function 
@@ -58,14 +58,14 @@ The updateTemperature function is also called in calculateTemperature, so that w
 call, the temperature conversion and printing is done. The calculateTemperature function is also called in ISR 
 so that it can be updated every second.
 
-### alarmIndicator, alarmTime and alarmSnooze functions
+- ### alarmIndicator, alarmTime and alarmSnooze functions
 
 The alarmIndicator function shows the alarm is ON or OFF. Also the alarmTime function shows the alarm hour 
 and minute that has been set up. Also, if the alarm and clock time are equal, the buzzer is turned on and off 
 as the alarm ringing sound. The alarmSnooze function checks the state of isAlarmOff and if alarm is set, it 
 is going to snooze the alarm for 5 minutes.
 
-### handleButtonX functions
+- ### handleButtonX functions
 
 There are four handleButtonX functions created. In these functions, a digital reading is performed and decided 
 that if the button is not pressed, if the button is short pressed or if the button is long pressed. Then, the 
@@ -107,8 +107,6 @@ exactly 60 seconds needs to pass in order to ring the alarm.
 On top left the clock is shown, on top right there is an indication showing alarm is on or off. 
 On bottom left temperature is shown and on bottom right the alarm is shown.
 
-### Extras
-
-There is a small delay introduced in loop function, because otherwise the Tinkercad platform cannot keep up in speed. 
+> There is a small delay introduced in loop function, because otherwise the Tinkercad platform cannot keep up in speed. 
 If delay is not used in loop function the simulation time decreases drastically. This delay function is only used 
 for this purpose, it is not related to any timing.
